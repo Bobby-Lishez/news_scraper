@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080,
 app.use(express.static(path.join(__dirname, '/public')));
 
 //database
-const db = require('./app/models');
+//const db = require('./app/models');
     //use morgan to log requests
     app.use(logger('dev'));
 
@@ -30,12 +30,14 @@ const db = require('./app/models');
     mongoose.connect(MONGODB_URI);
 
 //parsing
-app.use(bodyParser.urlendoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //routing
 const apiRoutes = require('./app/controllers/api-routes');
+const hbsRoutes = require('./app/controllers/hbs-routes');
 app.use('/', apiRoutes);
+app.use('/', hbsRoutes);
 
 //views
 const hbs = exphbs.create({defaultLayout: 'main'});
