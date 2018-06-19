@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080,
 app.use(express.static(path.join(__dirname, '/public')));
 
 //database
-//const db = require('./app/models');
+const db = require('./models');
     //use morgan to log requests
     app.use(logger('dev'));
 
@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //routing
-const apiRoutes = require('./app/controllers/api-routes');
-const hbsRoutes = require('./app/controllers/hbs-routes');
+const apiRoutes = require('./controllers/api-routes');
+const hbsRoutes = require('./controllers/hbs-routes');
 app.use('/', apiRoutes);
 app.use('/', hbsRoutes);
 
