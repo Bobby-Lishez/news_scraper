@@ -1,13 +1,10 @@
 //Dependencies
 const bodyParser = require('body-parser'),
-      cheerio = require('cheerio'),
-      axios = require('axios'),
       express = require('express'),
       path = require('path'),
       exphbs = require('express-handlebars'),
       mongoose = require('mongoose'),
-      logger = require('morgan'),
-      request = require('request');
+      logger = require('morgan');
 
 //Initialize express
 const PORT = process.env.PORT || 8080,
